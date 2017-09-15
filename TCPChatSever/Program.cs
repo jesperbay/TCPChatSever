@@ -16,6 +16,7 @@ namespace TCPChatSever
             Console.WriteLine("Sever started");
 
           TcpClient connectSocket =  severSocket.AcceptTcpClient();
+            Console.WriteLine("Server arktiveret");
 
         }
     }
