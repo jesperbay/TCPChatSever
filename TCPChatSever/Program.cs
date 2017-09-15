@@ -20,10 +20,31 @@ namespace TCPChatSever
             Console.WriteLine("Server arktiveret");
 
             Stream ns = connectSocket.GetStream();
-            StreamReader sr = new StreamReader(ns);
 
-            string message = sr.ReadLine();
-            Console.WriteLine("clit " + message);
+            while (true)
+            {
+                StreamReader sr = new StreamReader(ns);
+
+                StreamWriter sw = new StreamWriter(ns);
+                sw.AutoFlush = true;
+
+                string memessage = Console.ReadLine();
+                sw.WriteLine(memessage);
+
+                string message = sr.ReadLine();
+                Console.WriteLine("clit " + message);
+
+                string s = Console.ReadLine();
+                if (s == "end")
+                {
+                    sr.Close();
+                    sw.Close();
+                    ns.Close();
+                }
+
+            }
+
+           
 
         }
     }
