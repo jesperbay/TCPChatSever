@@ -40,6 +40,7 @@ namespace TCPChatSever
                     sr.Close();
                     sw.Close();
                     ns.Close();
+                    Environment.Exit(0);
                 }
 
             }
