@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -17,6 +18,12 @@ namespace TCPChatSever
 
           TcpClient connectSocket =  severSocket.AcceptTcpClient();
             Console.WriteLine("Server arktiveret");
+
+            Stream ns = connectSocket.GetStream();
+            StreamReader sr = new StreamReader(ns);
+
+            string message = sr.ReadLine();
+            Console.WriteLine("clit " + message);
 
         }
     }
